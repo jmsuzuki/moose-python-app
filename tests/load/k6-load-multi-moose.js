@@ -9,19 +9,19 @@ function generateUniqueId() {
 
 export const options = {
     vus: 100,
-    duration: '900s',
+    duration: '1500s',
     iterations: 1000000,
     cloud: {
         // Project: mitchell
         projectID: 3743662,
         // Test runs with the same name groups test runs together.
-        name: `Test Moose - 0.3.763`
+        name: `Test Multi Moose - 0.3.840`
     }
 };
 
 export default function () {
-    let base_url = "https://514-mitchell-moose-p-main-53993e.boreal.cloud"
-    // let base_url = "https://514-moose-python-app-main-d04370.boreal.cloud"
+    // let base_url = "https://514-mitchell-moose-p-main-53993e.boreal.cloud"
+    let base_url = "https://514-moose-python-app-main-d04370.boreal.cloud"
     base_url += "/ingest/UserActivity"
 
     // Get current date and format it

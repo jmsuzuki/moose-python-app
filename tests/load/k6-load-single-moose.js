@@ -15,7 +15,7 @@ export const options = {
         // Project: mitchell
         projectID: 3743662,
         // Test runs with the same name groups test runs together.
-        name: `Test Moose - 0.3.836`
+        name: `Test Single Moose - 0.3.836`
     }
 };
 
