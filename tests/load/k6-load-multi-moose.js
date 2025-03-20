@@ -1,26 +1,38 @@
 import http from 'k6/http';
 import {sleep} from 'k6';
 
+
+// Simple function to generate a pseudo-unique ID
+function generateUniqueId() {
+    return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+}
+
 export const options = {
-    vus: 10,
-    // duration: '30s',
-    iterations: 4000,
+    vus: 100,
+    duration: '1500s',
+    iterations: 1000000,
     cloud: {
         // Project: mitchell
         projectID: 3743662,
         // Test runs with the same name groups test runs together.
-        name: 'Test (29/01/2025-15:49:40)'
+        name: `Test Multi Moose - 0.3.840`
     }
 };
 
 export default function () {
-    const base_url = "https://mitchell-test-moose-python-app-main-eb82f6.boreal.cloud/ingest/UserActivity"
+    // let base_url = "https://514-mitchell-moose-p-main-53993e.boreal.cloud"
+    let base_url = "https://514-moose-python-app-main-d04370.boreal.cloud"
+    base_url += "/ingest/UserActivity"
+
+    // Get current date and format it
+    const now = new Date();
+    const timestamp = now.toISOString().replace('T', ' ').split('.')[0];
 
     const payload = {
-        "eventId": "1",
-        "timestamp": "2019-01-01 00:00:01",
+        "eventId": generateUniqueId(),
+        "timestamp": timestamp,
         "userId": "123456",
-        "activity": "click"
+        "activity": "k6 tests"
     }
 
     while (true) {
